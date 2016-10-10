@@ -1,0 +1,60 @@
+{
+  "header": {
+    "content-type": "text/html"
+  },
+  "stylesheet" : [
+    {
+      "tag": "body",
+      "attributes": {
+        "margin": 0,
+        "border": 0
+      },
+      "children" : [
+        {
+          "tag" : "main",
+          "children" : [
+            {
+              "tag" : "h1",
+              "attributes" : {
+                "text-align" : "center",
+                "cursor" : "pointer"
+              },
+              "selectors" : [
+                {
+                  "tag" : "hover",
+                  "attributes" : {
+                    "color" : "#c4c"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "tag" : "head",
+      "content" : [
+        {
+          "tag" : "link",
+          "attributes" : {
+            "rel" : "stylesheet",
+            "type" : "text/css",
+            "href" : "http://localhost:8080/css"
+          }
+        }
+      ]
+    },
+    {
+      "tag" : "main",
+      "content" : [
+        {
+          "tag" : "h1",
+          "content" : "Hola que tal"
+        }
+      ]
+    }
+  ]
+}
