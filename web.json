@@ -46,12 +46,12 @@
   },
   "hton" : {
     "variables" : {
-      "hitler": {
-        "tag": "hitler",
+      "test": {
+        "tag": "a",
         "content": "hola"
       },
-      "hitler2": {
-        "tag": "hitler",
+      "test2": {
+        "tag": "a",
         "content": [
           {
             "tag" : "iframe"
@@ -83,7 +83,7 @@
         ]
       },
       {
-        "tag" : "@:hitler2"
+        "tag" : "@:test2"
       }
     ]
   }
