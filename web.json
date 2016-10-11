@@ -2,59 +2,89 @@
   "header": {
     "content-type": "text/html"
   },
-  "stylesheet" : [
-    {
-      "tag": "body",
-      "attributes": {
-        "margin": 0,
-        "border": 0
-      },
-      "children" : [
-        {
-          "tag" : "main",
-          "children" : [
-            {
-              "tag" : "h1",
-              "attributes" : {
-                "text-align" : "center",
-                "cursor" : "pointer"
-              },
-              "selectors" : [
-                {
-                  "tag" : "hover",
-                  "attributes" : {
-                    "color" : "#c4c"
-                  }
-                }
-              ]
-            }
-          ]
+  "sson" : {
+    "variables" : {
+      "color-black" : "#ccc",
+      "heil" : {
+        "tag" : "textarea",
+        "attributes": {
+          "color" : "@:color-black"
         }
-      ]
-    }
-  ],
-  "content": [
-    {
-      "tag" : "head",
-      "content" : [
-        {
-          "tag" : "link",
-          "attributes" : {
-            "rel" : "stylesheet",
-            "type" : "text/css",
-            "href" : "http://localhost:8080/css"
-          }
-        }
-      ]
+      }
     },
-    {
-      "tag" : "main",
-      "content" : [
-        {
-          "tag" : "h1",
-          "content" : "Hola que tal"
-        }
-      ]
-    }
-  ]
+    "content" : [
+      {
+        "tag": "div",
+        "attributes": {
+          "margin": 0,
+          "border": 0
+        },
+        "children" : [
+          {
+            "tag" : "main",
+            "children" : [
+              {
+                "tag" : "h1",
+                "attributes" : {
+                  "text-align" : "center",
+                  "cursor" : "pointer"
+                },
+                "selectors" : [
+                  {
+                    "tag" : "hover",
+                    "attributes" : {
+                      "color" : "@:color-black"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "hton" : {
+    "variables" : {
+      "hitler": {
+        "tag": "hitler",
+        "content": "hola"
+      },
+      "hitler2": {
+        "tag": "hitler",
+        "content": [
+          {
+            "tag" : "iframe"
+          }
+        ]
+      }
+    },
+    "content" : [
+      {
+        "tag" : "head",
+        "content" : [
+          {
+            "tag" : "link",
+            "attributes" : {
+              "rel" : "stylesheet",
+              "type" : "text/css",
+              "href" : "http://localhost:8080/css"
+            }
+          }
+        ]
+      },
+      {
+        "tag" : "main",
+        "content" : [
+          {
+            "tag" : "h1",
+            "content" : "Hola que tal"
+          }
+        ]
+      },
+      {
+        "tag" : "@:hitler2"
+      }
+    ]
+  }
 }
