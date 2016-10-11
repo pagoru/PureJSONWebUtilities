@@ -82,9 +82,9 @@ module.exports = {
             var selectors = data[i]['selectors'];
             var children = data[i]['children'];
 
-            rawCss += prev + tag + "{";
-
             if(attributes != null){
+                rawCss += prev + tag + "{";
+
                 var keysAttr = Object.keys(attributes);
                 for (var s = 0; s < keysAttr.length; s++) {
                     var kAt = keysAttr[s];
@@ -97,9 +97,9 @@ module.exports = {
                     rawCss += kAt + ": " + vAt + ";";
 
                 }
-            }
 
-            rawCss += "} ";
+                rawCss += "} ";
+            }
 
             if(children != null){
                 rawCss += this.sson(children, prev + tag + " ");
