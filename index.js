@@ -8,12 +8,8 @@ var fs = require('fs');
 
 var web = JSON.parse(fs.readFileSync(ROOT_PATH + 'web.json', 'utf8'));
 
-var header = web.header['content-type'];
-var content = parser.hton(web.hton);
-var cssContent = parser.sson(web.sson);
+var content = parser.parse(web);
 
-console.log(header);
 console.log(content);
-console.log(cssContent);
 
 // console.log(web.hton.variables);

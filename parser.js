@@ -149,11 +149,20 @@ function getVariables(variables){
 
 module.exports = {
     hton: function(data) {
-        return parseHTONContent(data.content, getVariables(data.variables));
+        return (data == null) ? null : parseHTONContent(data.content, getVariables(data.variables));
     },
-
     sson: function(data){
-        return parseSSONContent(data.content, "", getVariables(data.variables));
+        return (data == null) ? null : parseSSONContent(data.content, "", getVariables(data.variables));
 
+    },
+    header: function(data){
+        return (data == null) ? null : data['content-type'];
+    },
+    parse: function(data){
+        var d = new Object();
+        d.header = this.header(data.header);
+        d.hton = this.hton(data.hton);
+        d.sson = this.sson(data.sson);
+        return d;
     }
 }
