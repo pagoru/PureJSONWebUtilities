@@ -1,0 +1,13 @@
+{
+  "name": "Node Json to Html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pagoru/nodeJsonToHtml.git"
+  },
+  "description": "Travis node.js test",
+  "author": "https://twitter.com/pagoru_",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "./index.js"
+  }
+}
