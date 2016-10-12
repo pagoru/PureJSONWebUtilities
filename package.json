@@ -8,6 +8,6 @@
   "author": "https://twitter.com/pagoru_",
   "version": "1.0.0",
   "scripts": {
-    "test": "./index.js"
+    "test": "./node_modules/jshint/bin/jshint index.js"
   }
 }
