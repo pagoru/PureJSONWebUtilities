@@ -25,17 +25,17 @@ function parseOSNContent(data, prev, variables){
             var keysAttr = Object.keys(attributes);
             for (var s = 0; s < keysAttr.length; s++) {
                 var kAt = keysAttr[s];
-                var vAt = attributes[kAt] + "";
+                var vAt = attributes[kAt];
+
+                if(typeof vAt == 'number'){
+                    vAt += 'px';
+                }
 
                 if(vAt.startsWith("@:")){
                     var v = variables[vAt.replace('@:', '')];
                     if(!(v instanceof Object)){
                         vAt = v;
                     }
-                }
-
-                if(typeof vAt == 'number'){
-                    vAt += 'px';
                 }
 
                 rawCss += kAt + ": " + vAt + ";";
@@ -148,10 +148,10 @@ function getVariables(variables){
 }
 
 module.exports = {
-    hton: function(data) {
+    html: function(data) {
         return (data == null) ? null : parseHTONContent(data.content, getVariables(data.variables));
     },
-    osn: function(data){
+    css: function(data){
         return (data == null) ? null : parseOSNContent(data.content, "", getVariables(data.variables));
 
     },
@@ -161,8 +161,8 @@ module.exports = {
     parse: function(data){
         var d = new Object();
         d.header = this.header(data.header);
-        d.hton = this.hton(data.hton);
-        d.osn = this.osn(data.osn);
+        d.html = this.html(data.hton);
+        d.css = this.css(data.osn);
         return d;
     }
 }
