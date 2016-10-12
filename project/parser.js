@@ -1,7 +1,7 @@
 /**
  * Created by pablo on 10/10/16.
  */
-function parseSSONContent(data, prev, variables){
+function parseOSNContent(data, prev, variables){
 
     prev = prev == null ? "" : prev;
     var rawCss = "";
@@ -46,11 +46,11 @@ function parseSSONContent(data, prev, variables){
         }
 
         if(children != null){
-            rawCss += parseSSONContent(children, prev + tag + " ", variables);
+            rawCss += parseOSNContent(children, prev + tag + " ", variables);
         }
 
         if(selectors != null){
-            rawCss += parseSSONContent(selectors, prev + tag + ":", variables);
+            rawCss += parseOSNContent(selectors, prev + tag + ":", variables);
         }
 
     }
@@ -151,8 +151,8 @@ module.exports = {
     hton: function(data) {
         return (data == null) ? null : parseHTONContent(data.content, getVariables(data.variables));
     },
-    sson: function(data){
-        return (data == null) ? null : parseSSONContent(data.content, "", getVariables(data.variables));
+    osn: function(data){
+        return (data == null) ? null : parseOSNContent(data.content, "", getVariables(data.variables));
 
     },
     header: function(data){
@@ -162,7 +162,7 @@ module.exports = {
         var d = new Object();
         d.header = this.header(data.header);
         d.hton = this.hton(data.hton);
-        d.sson = this.sson(data.sson);
+        d.osn = this.osn(data.osn);
         return d;
     }
 }
