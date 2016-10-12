@@ -2,7 +2,7 @@
   "name": "nodeJsonToHtml",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pagoru/PureJSONWebUtilites.git"
+    "url": "https://github.com/pagoru/PureJSONWebUtilities.git"
   },
   "description": "Travis node.js test",
   "author": "https://twitter.com/pagoru_",

@@ -1,2 +1,2 @@
-#Pure JSON Web Utilites
-[![Build Status](https://travis-ci.org/pagoru/PureJSONWebUtilites.svg?branch=master)](https://travis-ci.org/pagoru/PureJSONWebUtilites)
+#Pure JSON Web Utilities
+[![Build Status](https://travis-ci.org/pagoru/PureJSONWebUtilities.svg?branch=master)](https://travis-ci.org/pagoru/PureJSONWebUtilities)
