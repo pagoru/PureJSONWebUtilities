@@ -67,7 +67,35 @@ function parseHTONContent(data, variables){
         var rawAttributes = "";
 
         if(data[i]['tag'].startsWith("@:")){
-            data[i] = variables[data[i]['tag'].replace('@:', '')]
+
+            var varName = data[i]['tag'].replace('@:', '');
+            data[i]['tag'] = variables[varName]['tag'];
+
+            if(variables[varName] != null){
+
+                var keysVars = Object.keys(variables[varName]);
+                for(var v = 0; v < keysVars.length; v++){
+                    var keyV = keysVars[v];
+                    var valueV = variables[varName][keyV];
+
+                    if(keyV == "attributes" && data[i]["attributes"] != null){
+
+                        var keysAttrs = Object.keys(valueV);
+                        for(var at = 0; at < keysAttrs.length; at++){
+                            var keyAt = keysAttrs[at];
+                            var valueAt = valueV[keyAt];
+
+                            if(data[i][keyV][keyAt] == null){
+                                data[i][keyV][keyAt] = valueAt;
+                            }
+                        }
+                        continue;
+                    }
+                    if(data[i][keyV] == null){
+                        data[i][keyV] = valueV;
+                    }
+                }
+            }
         }
 
         var tag = data[i]['tag'];

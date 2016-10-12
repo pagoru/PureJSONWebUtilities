@@ -46,44 +46,25 @@
   },
   "hton" : {
     "variables" : {
-      "test": {
-        "tag": "a",
-        "content": "hola"
-      },
       "test2": {
         "tag": "a",
-        "content": [
+        "attributes" : {
+          "height" : 41
+        },
+        "content" : [
           {
-            "tag" : "iframe"
+            "tag" : "@:test2",
+            "content" : "hola"
           }
         ]
       }
     },
     "content" : [
       {
-        "tag" : "head",
-        "content" : [
-          {
-            "tag" : "link",
-            "attributes" : {
-              "rel" : "stylesheet",
-              "type" : "text/css",
-              "href" : "http://localhost:8080/css"
-            }
-          }
-        ]
-      },
-      {
-        "tag" : "main",
-        "content" : [
-          {
-            "tag" : "h1",
-            "content" : "Hola que tal"
-          }
-        ]
-      },
-      {
-        "tag" : "@:test2"
+        "tag" : "@:test2",
+        "attributes" : {
+          "href" : "asdasd"
+        }
       }
     ]
   }
