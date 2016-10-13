@@ -8,12 +8,13 @@ function parseOSNContent(data, prev, variables){
 
     for(var i = 0; i < data.length; i++){
 
-        if(data[i]['tag'].startsWith("@:")){
-            var d = variables[data[i]['tag'].replace('@:', '')];
-            if(d instanceof Object){
-                data[i] = d;
+        if(data[i]['tag'].match("^@\{(.*?)\}$")) {
+            var d = data[i]['tag'].substring(2, data[i]['tag'].length - 1);
+            if(variables[d] instanceof Object){
+                data[i] = variables[d];
             }
         }
+
         var tag = data[i]['tag'];
         var attributes = data[i]['attributes'];
         var selectors = data[i]['selectors'];
@@ -31,11 +32,18 @@ function parseOSNContent(data, prev, variables){
                     vAt += 'px';
                 }
 
-                if(vAt.startsWith("@:")){
-                    var v = variables[vAt.replace('@:', '')];
-                    if(!(v instanceof Object)){
-                        vAt = v;
-                    }
+                var regex = new RegExp("#\{(.*?)\}", "gi");
+
+                if(regex.exec(vAt)){
+                    var arrRegex = vAt.match(regex);
+                    arrRegex.forEach(function(arr){
+                        var vName = arr.substring(2, arr.length - 1);
+                        var v = variables[vName];
+                        if(!(v instanceof Object)){
+                            vAt = vAt.replace("#{" + vName + "}", v);
+                        }
+                    });
+
                 }
 
                 rawCss += kAt + ": " + vAt + ";";
@@ -66,9 +74,9 @@ function parseHTONContent(data, variables){
 
         var rawAttributes = "";
 
-        if(data[i]['tag'].startsWith("@:")){
+        if(data[i]['tag'].match("^@\{(.*?)\}$")){
 
-            var varName = data[i]['tag'].replace('@:', '');
+            var varName = data[i]['tag'].substring(2, data[i]['tag'].length -1);
             data[i]['tag'] = variables[varName]['tag'];
 
             if(variables[varName] != null){

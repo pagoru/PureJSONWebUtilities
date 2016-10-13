@@ -5,10 +5,11 @@
   "osn" : {
     "variables" : {
       "color-black" : "#ccc",
+      "color-blue" : "#c3c",
       "heil" : {
         "tag" : "textarea",
         "attributes": {
-          "color" : "@:color-black"
+          "color" : "#{color-black}"
         }
       }
     },
@@ -17,9 +18,13 @@
         "tag": "div",
         "attributes": {
           "margin": 0,
-          "border": 0
+          "border": 0,
+          "margin-bottom" : "1px solid #{color-blue}"
         },
         "children" : [
+          {
+            "tag" : "@{heil}"
+          },
           {
             "tag" : "main",
             "children" : [
@@ -33,7 +38,7 @@
                   {
                     "tag" : "hover",
                     "attributes" : {
-                      "color" : "@:color-black"
+                      "color" : "#{color-black}"
                     }
                   }
                 ]
@@ -53,7 +58,7 @@
         },
         "content" : [
           {
-            "tag" : "@:test2",
+            "tag" : "@{test2}",
             "content" : "hola"
           }
         ]
@@ -61,7 +66,7 @@
     },
     "content" : [
       {
-        "tag" : "@:test2",
+        "tag" : "@{test2}",
         "attributes" : {
           "href" : "asdasd"
         }
