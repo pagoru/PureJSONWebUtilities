@@ -63,9 +63,7 @@
           }
         ]
       },
-      "test3" : {
-        "content" : "hola que tal"
-      }
+      "test3" : "hola que tal"
     },
     "content" : [
       {

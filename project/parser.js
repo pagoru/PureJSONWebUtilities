@@ -165,7 +165,7 @@ function parseHTONContent(data, variables){
                 var arrRegex = content.match(regex);
                 arrRegex.forEach(function(arr){
                     var vName = arr.substring(2, arr.length - 1);
-                    var v = variables[vName]['content'];
+                    var v = variables[vName];
                     if(!(v instanceof Object)){
                         content = content.replace("#{" + vName + "}", v);
                     }
