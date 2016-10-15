@@ -62,6 +62,9 @@
             "content" : "hola"
           }
         ]
+      },
+      "test3" : {
+        "content" : "hola que tal"
       }
     },
     "content" : [
@@ -70,6 +73,10 @@
         "attributes" : {
           "href" : "asdasd"
         }
+      },
+      {
+        "tag" : "a",
+        "content" : "#{test3}? Si, si.\""
       }
     ]
   }

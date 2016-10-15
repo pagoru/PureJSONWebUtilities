@@ -158,6 +158,21 @@ function parseHTONContent(data, variables){
         if (content instanceof Object) {
             rawContent += parseHTONContent(content, variables);
         } else {
+
+            var regex = new RegExp("#\{(.*?)\}", "gi");
+
+            if(regex.exec(content)){
+                var arrRegex = content.match(regex);
+                arrRegex.forEach(function(arr){
+                    var vName = arr.substring(2, arr.length - 1);
+                    var v = variables[vName]['content'];
+                    if(!(v instanceof Object)){
+                        content = content.replace("#{" + vName + "}", v);
+                    }
+                });
+
+            }
+
             rawContent += content;
         }
 
