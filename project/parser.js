@@ -28,8 +28,18 @@ function parseOSNContent(data, prev, variables){
                 var kAt = keysAttr[s];
                 var vAt = attributes[kAt];
 
+                var defaultUnit = attributes['default-unit'];
+
+                if(kAt == 'default-unit'){
+                    continue;
+                }
+
+                if(defaultUnit == null){
+                    defaultUnit = "px";
+                }
+
                 if(typeof vAt == 'number'){
-                    vAt += 'px';
+                    vAt += defaultUnit;
                 }
 
                 var regex = new RegExp("#\{(.*?)\}", "gi");
@@ -114,35 +124,43 @@ function parseHTONContent(data, variables){
 
             var keysAttr = Object.keys(attributes);
 
+            var defaultUnit = attributes['default-unit'];
+
+            if(defaultUnit == null){
+                defaultUnit = "px";
+            }
+
             for (var s = 0; s < keysAttr.length; s++) {
                 var kAt = keysAttr[s];
                 var vAt = attributes[kAt];
-                rawAttributes += " ";
+
+                if(kAt == 'default-unit'){
+                    continue;
+                }
+                rawAttributes += " " + kAt + "=\"";
+
+                var rawInside = "";
 
                 switch (kAt) {
                     case 'style':
-                        rawAttributes += "style=\"";
-
-                        var rawStyle = "";
                         var keysStyle = Object.keys(vAt);
 
-                        for (var s = 0; s < keysStyle.length; s++) {
-                            var kSt = keysStyle[s];
+                        for (var v = 0; v < keysStyle.length; v++) {
+                            var kSt = keysStyle[v];
                             var vSt = vAt[kSt];
 
                             if (typeof vSt == 'number') {
-                                vSt += "px";
+                                vSt += defaultUnit;
                             }
-
-                            rawStyle += kSt + ": " + vSt + ";";
+                            rawInside += kSt + ": " + vSt + ";";
                         }
-
-                        rawAttributes += rawStyle + "\"";
                         break;
                     default:
-                        rawAttributes += kAt + "=\"" + vAt + "\"";
+                        vAt
                         break;
                 }
+
+                rawAttributes += rawInside + "\"";
 
             }
 

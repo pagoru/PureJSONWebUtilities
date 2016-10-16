@@ -17,6 +17,7 @@
       {
         "tag": "div",
         "attributes": {
+          "default-unit": "%",
           "margin": 0,
           "border": 0,
           "margin-bottom" : "1px solid #{color-blue}"
@@ -54,14 +55,13 @@
       "test2": {
         "tag": "a",
         "attributes" : {
-          "height" : 41
-        },
-        "content" : [
-          {
-            "tag" : "@{test2}",
-            "content" : "hola"
+          "default-unit" : "%",
+          "height" : 41,
+          "style" : {
+            "height" : 22,
+            "margin-left" : 243
           }
-        ]
+        }
       },
       "test3" : "hola que tal"
     },
