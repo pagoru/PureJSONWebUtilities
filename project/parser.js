@@ -171,14 +171,14 @@ function parseHTONContent(data, variables){
 
         }
 
-        if (content == null) {
-            var voidElements = ["area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
+        var voidElements = ["area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
 
-            console.log(voidElements.indexOf(tag) + "-" + tag);
-            if(voidElements.indexOf(tag) != -1){
-                rawHtml += "<" + tag + rawAttributes + " />";
-                continue;
-            }
+        if(voidElements.indexOf(tag) != -1){
+            rawHtml += "<" + tag + rawAttributes + " />";
+            continue;
+        }
+
+        if (content == null) {
             rawHtml += "<" + tag + rawAttributes + "></" + tag + ">";
             continue;
         }
