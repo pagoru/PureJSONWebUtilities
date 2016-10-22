@@ -65,7 +65,7 @@ function parseOSNContent(data, prev, variables){
         }
 
         if(heritage != null){
-            rawCss += parseOSNContent(children, prev + tag + " ", variables);
+            rawCss += parseOSNContent(heritage, prev + tag + " ", variables);
         }
 
         if(children != null){
