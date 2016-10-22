@@ -22,6 +22,14 @@
           "border": 0,
           "margin-bottom" : "1px solid #{color-blue}"
         },
+        "heritage" : [
+          {
+            "tag" : "h2",
+            "attributes" : {
+              "color" : "blue"
+            }
+          }
+        ],
         "children" : [
           {
             "tag" : "@{heil}"

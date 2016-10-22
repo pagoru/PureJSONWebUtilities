@@ -19,6 +19,7 @@ function parseOSNContent(data, prev, variables){
         var attributes = data[i]['attributes'];
         var selectors = data[i]['selectors'];
         var children = data[i]['children'];
+        var heritage = data[i]['heritage'];
 
         if(attributes != null){
             rawCss += prev + tag + "{";
@@ -46,7 +47,7 @@ function parseOSNContent(data, prev, variables){
 
                 if(regex.exec(vAt)){
                     var arrRegex = vAt.match(regex);
-                    arrRegex.forEach(function(arr){
+                    arrRegex.forEach(function(arr){  
                         var vName = arr.substring(2, arr.length - 1);
                         var v = variables[vName];
                         if(!(v instanceof Object)){
@@ -63,8 +64,12 @@ function parseOSNContent(data, prev, variables){
             rawCss += "} ";
         }
 
-        if(children != null){
+        if(heritage != null){
             rawCss += parseOSNContent(children, prev + tag + " ", variables);
+        }
+
+        if(children != null){
+            rawCss += parseOSNContent(children, prev + tag + " > ", variables);
         }
 
         if(selectors != null){
