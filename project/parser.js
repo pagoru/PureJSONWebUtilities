@@ -161,7 +161,7 @@ function parseHTONContent(data, variables){
                         }
                         break;
                     default:
-                        vAt
+                        rawAttributes += vAt;
                         break;
                 }
 
@@ -172,7 +172,14 @@ function parseHTONContent(data, variables){
         }
 
         if (content == null) {
-            rawHtml += "<" + tag + rawAttributes + "/>";
+            var voidElements = ["area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
+
+            console.log(voidElements.indexOf(tag) + "-" + tag);
+            if(voidElements.indexOf(tag) != -1){
+                rawHtml += "<" + tag + rawAttributes + " />";
+                continue;
+            }
+            rawHtml += "<" + tag + rawAttributes + "></" + tag + ">";
             continue;
         }
 
