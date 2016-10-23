@@ -47,7 +47,7 @@ function parseOSNContent(data, prev, variables){
 
                 if(regex.exec(vAt)){
                     var arrRegex = vAt.match(regex);
-                    arrRegex.forEach(function(arr){  
+                    arrRegex.forEach(function(arr){
                         var vName = arr.substring(2, arr.length - 1);
                         var v = variables[vName];
                         if(!(v instanceof Object)){
@@ -57,7 +57,7 @@ function parseOSNContent(data, prev, variables){
 
                 }
 
-                rawCss += kAt + ": " + vAt + ";";
+                rawCss += kAt.split("*")[0] + ": " + vAt + ";";
 
             }
 

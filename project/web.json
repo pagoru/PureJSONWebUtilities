@@ -9,7 +9,8 @@
       "heil" : {
         "tag" : "textarea",
         "attributes": {
-          "color" : "#{color-black}"
+          "color" : "#{color-black}",
+          "color*1" : "#ccc"
         }
       }
     },
