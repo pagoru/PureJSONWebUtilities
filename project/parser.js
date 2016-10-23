@@ -160,6 +160,9 @@ function parseHTONContent(data, variables){
                             rawInside += kSt + ": " + vSt + ";";
                         }
                         break;
+                    case 'class':
+                        rawAttributes += String(vAt).replace(/,/gi, " ");
+                        break;
                     default:
                         rawAttributes += vAt;
                         break;

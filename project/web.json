@@ -78,7 +78,8 @@
       {
         "tag" : "@{test2}",
         "attributes" : {
-          "href" : "asdasd"
+          "href" : "asdasd",
+          "class" : ["hola", "que", "clazz"]
         }
       },
       {
